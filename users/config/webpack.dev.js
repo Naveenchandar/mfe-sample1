@@ -21,8 +21,14 @@ const devConfig = {
             name: "users",
             filename: "remoteEntry.js",
             exposes: {
-                "./users": "./src/bootstrap"
+                "./usersApp": "./src/bootstrap",
+                "./button": "./src/components/Button",
+                "./dialog": "./src/components/Dialog",
+                "./list": "./src/components/List"
             },
+            // exposes: {
+            //     "./authApp":"./src/bootstrap"
+            // },
             shared: packageJson.dependencies
         })
     ]
