@@ -1,0 +1,25 @@
+{
+  "name": "mfe-sample1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:app1": "cd container && npm start",
+    "start:app2": "cd users && npm start",
+    "start:app3": "cd todos && npm start",
+    "start:all": "lerna run --concurrency 3 start"
+  },
+  "workspaces": {
+    "packages": [
+      "container",
+      "users",
+      "todos"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lerna": "^7.0.2"
+  }
+}
