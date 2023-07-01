@@ -8,7 +8,7 @@ const Tabs = () => {
     const navigate = useNavigate();
     return (
         <>
-            <button onClick={() => navigate("/users/list")}>Back to users main page</button>
+            <button onClick={() => navigate("/")}>Back to users main page</button>
             <div className="tab">
                 <button className="tablinks"
                     onClick={() => setCurrentTab({ city: "London", capital: "England" })}
@@ -34,4 +34,4 @@ const TabContent = ({ currentTab }) => {
     )
 }
 
-export default Tabs
+export { Tabs }

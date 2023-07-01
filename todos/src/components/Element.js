@@ -3,22 +3,33 @@ import { useParams } from 'react-router-dom'
 
 export const Element = () => {
     const { id } = useParams();
-    const elementRef = React.useRef();
+    const [itemInfo, setItemInfo] = React.useState({
+        title: "",
+        completed: ""
+    });
     React.useEffect(() => {
         (async () => {
             try {
                 const apiResponse = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
-                const responseData = await apiResponse.json();
-                console.log('responseData:', responseData)
-                if (elementRef?.current) {
-                    elementRef.current = responseData;
-                }
+                const { title, completed } = await apiResponse.json();
+                setItemInfo({ title, completed })
             } catch (error) {
-                elementRef.current = error.message;
+                setItemInfo({ error: error.message })
             }
         })()
     }, [id])
+    const { error, title, completed } = itemInfo;
     return (
-        <div ref={elementRef}>Element</div>
+        <div>
+            {error
+                ? <p color='red'>{error}</p>
+                : (
+                    <>
+                        <p>Title - {title}</p>
+                        <p>Completed - {completed?.toString()}</p>
+                    </>
+                )
+            }
+        </div>
     )
 }

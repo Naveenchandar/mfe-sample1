@@ -25,7 +25,7 @@ const devConfig = {
             name: "container",
             filename: "remoteEntry.js",
             remotes: {
-                // "todos": "todos@http://localhost:8082/remoteEntry.js",
+                "todos": "todos@http://localhost:8086/remoteEntry.js",
                 "users": "users@http://localhost:8085/remoteEntry.js"
             },
             // remotes: {

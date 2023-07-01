@@ -1,13 +1,10 @@
+import React from "react";
 import './App.css';
-import { List } from './components/List';
+import { Router } from './routing';
 
-function App() {
+function App({ routingType, initialPath }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <List />
-      </header>
-    </div>
+    <Router routingType={routingType} initialPath={initialPath} />
   );
 }
 
